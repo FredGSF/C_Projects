@@ -1,10 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <stdio.h> 
 #include <time.h>
 
 
-void merge(int vetor[], int comeco, int meio, int fim) {
+void merge(int vetor[], int comeco, int meio, int fim) //merge sort
+{
     int com1 = comeco, com2 = meio + 1, comAux = 0, tam = fim - comeco + 1;
     int* vetAux;
     vetAux = (int*)malloc(tam * sizeof(int));
@@ -21,25 +21,29 @@ void merge(int vetor[], int comeco, int meio, int fim) {
         comAux++;
     }
 
-    while (com1 <= meio) {  //Caso ainda haja elementos na primeira metade
+    while (com1 <= meio)  //if there is elements in the first stick
+    {  
         vetAux[comAux] = vetor[com1];
         comAux++;
         com1++;
     }
 
-    while (com2 <= fim) {   //Caso ainda haja elementos na segunda metade
+    while (com2 <= fim) //if there is elements in the secund stick
+    {   
         vetAux[comAux] = vetor[com2];
         comAux++;
         com2++;
     }
 
-    for (comAux = comeco; comAux <= fim; comAux++) {    //Move os elementos de volta para o vetor original
+    for (comAux = comeco; comAux <= fim; comAux++) //Move elements to the original vetor
+    {  
         vetor[comAux] = vetAux[comAux - comeco];
     }
 
     free(vetAux);
 }
-void mergeSort(int vetor[], int comeco, int fim) {
+void mergeSort(int vetor[], int comeco, int fim) //merge sort
+{
     if (comeco < fim) {
         int meio = (fim + comeco) / 2;
 
@@ -48,13 +52,13 @@ void mergeSort(int vetor[], int comeco, int fim) {
         merge(vetor, comeco, meio, fim);
     }
 }
-void swap(int* xp, int* yp)
+void swap(int* xp, int* yp) //swap first with last
 {
     int temp = *xp;
     *xp = *yp;
     *yp = temp;
 }
-void selectionSort(int arr[], int n)
+void selectionSort(int arr[], int n)//selection sort
 {
     int i, j, min_idx;
 
@@ -88,10 +92,8 @@ void bubbleSort(int arr[], int n)
             if (arr[j] > arr[j + 1])
                 swap(&arr[j], &arr[j + 1]);
 }
-int partition(int arr[], int low, int high)
-
+int partition(int arr[], int low, int high) //function used in quick sort
 {
-
     int pivot = arr[high];
 
     int i = (low - 1);
@@ -115,9 +117,8 @@ int partition(int arr[], int low, int high)
     swap(&arr[i + 1], &arr[high]);
 
     return (i + 1);
-
 }
-void quickSort(int arr[], int low, int high)
+void quickSort(int arr[], int low, int high) //quick sort
 
 {
 
