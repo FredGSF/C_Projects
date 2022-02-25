@@ -233,7 +233,8 @@ case 4://QuickSort
     printArray(arr, n);
     endtime = clock();// calculating clock when sorting  ends
     totaltime = ((double)(endtime - starttime)) / CLOCKS_PER_SEC;
-    printf("\n\ntotal time of execution = %f\n", totaltime);
+    printf("\n\ntotal time of execution = %f\n", totaltime);    
+    break;
 case 5:
     
     exit(0);
